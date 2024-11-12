@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Dictionary</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', Arial, sans-serif;
+            background-color: #f9f9ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ff6f91;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px #ff9aa2;
+        }
+        #random-word {
+            font-size: 1.5em;
+            color: #ff9aa2;
+            margin: 20px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 12px;
+            background-color: #fce4ec;
+            transition: background-color 0.3s;
+        }
+        #random-word:hover {
+            background-color: #ffdde1;
+        }
+        button {
+            font-size: 1.1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ff6f91;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #ff9aa2;
+            transform: scale(1.05);
+        }
+        input[type="text"] {
+            padding: 8px;
+            font-size: 1em;
+            width: 250px;
+            border: 2px solid #ff6f91;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #ff9aa2;
+            outline: none;
+        }
+        #search-results {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+        #search-results div {
+            background-color: #ffdde1;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 5px 0;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+        #search-results div:hover {
+            background-color: #ffb3ba;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>น่ารัก Dictionary</h1>
+
+    <div id="random-word">Click to see a random word</div>
+    <button onclick="showRandomWord()">Show Random Word</button>
+
+    <div>
+        <input type="text" id="search-box" placeholder="Search a word..." oninput="searchWord()">
+    </div>
+
+    <div id="search-results"></div>
+
+    <script>
+        const words = [
+            { word: "อย่าหาทํา", definition: "หยุดทํา,อย่าคิดจะทํา" },
+            { word: "น่ามคาน", definition: "รําคาญ" },
+            { word: "ปล่อยจอย", definition: "ปล่อยวาง,ไม่สนใจ" },
+            { word: "แกง", definition: "แกล้ง" },
+            { word: "จบิง", definition: "จริง" },
+            { word: "ใจฟู", definition: "ดีใจ,มีความสุข" },
+            { word: "ติดแกลม", definition: "ใช้ชีวิตที่ติดหรู ติดรวย ติดความสะดวกสบาย" },
+            { word: "อย่าเล่นกับระบบ", definition: "จริงจัง,อย่าท้าทาย" },
+            { word: "อ่อม", definition: "ไม่เลิศ,รู้สึกกร่อย" },
+            { word: "บูด", definition: "ไม่ถูกใจ, ไม่ดี" },
+            { word: "เจ๊อย่าวีน", definition: "อย่าโมโห" }
+        ];
+
+        function showRandomWord() {
+            const randomWord = words[Math.floor(Math.random() * words.length)];
+            document.getElementById("random-word").innerText = randomWord.word + ": " + randomWord.definition;
+        }
+
+        function searchWord() {
+            const searchTerm = document.getElementById("search-box").value.toLowerCase();
+            const results = words.filter(item => item.word.toLowerCase().includes(searchTerm));
+            const resultContainer = document.getElementById("search-results");
+            resultContainer.innerHTML = "";
+
+            if (results.length > 0) {
+                results.forEach(item => {
+                    const div = document.createElement("div");
+                    div.innerText = item.word + ": " + item.definition;
+                    resultContainer.appendChild(div);
+                });
+            } else if (searchTerm) {
+                resultContainer.innerText = "No results found.";
+            }
+        }
+    </script>
+
+</body>
+</html>
