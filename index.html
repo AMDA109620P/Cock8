@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Dictionary</title>
+    <title>ศัพท์วัยรุ่น</title>
     <style>
         body {
-            font-family: 'Comic Sans MS', Arial, sans-serif;
-            background-color: #f9f9ff;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -17,48 +17,48 @@
         }
         h1 {
             font-size: 2.5em;
-            color: #ff6f91;
+            color: #ff6b6b;
             margin-bottom: 20px;
-            text-shadow: 1px 1px 2px #ff9aa2;
+            text-shadow: 2px 2px 3px #ffa5a5;
         }
         #random-word {
             font-size: 1.5em;
-            color: #ff9aa2;
+            color: #ff6f91;
             margin: 20px;
             text-align: center;
             padding: 10px;
-            border-radius: 12px;
-            background-color: #fce4ec;
+            border-radius: 10px;
+            background-color: #ffcccb;
             transition: background-color 0.3s;
         }
         #random-word:hover {
-            background-color: #ffdde1;
+            background-color: #ffd6d6;
         }
         button {
             font-size: 1.1em;
             padding: 10px 20px;
             border: none;
             border-radius: 8px;
-            background-color: #ff6f91;
+            background-color: #ff6b6b;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
         }
         button:hover {
-            background-color: #ff9aa2;
+            background-color: #ff8e8e;
             transform: scale(1.05);
         }
         input[type="text"] {
-            padding: 8px;
+            padding: 10px;
             font-size: 1em;
             width: 250px;
-            border: 2px solid #ff6f91;
+            border: 2px solid #ff6b6b;
             border-radius: 8px;
             margin-top: 15px;
             transition: border-color 0.3s;
         }
         input[type="text"]:focus {
-            border-color: #ff9aa2;
+            border-color: #ffa5a5;
             outline: none;
         }
         #search-results {
@@ -68,7 +68,7 @@
             text-align: center;
         }
         #search-results div {
-            background-color: #ffdde1;
+            background-color: #ffe4e1;
             border-radius: 8px;
             padding: 10px;
             margin: 5px 0;
@@ -76,13 +76,13 @@
             transition: background-color 0.3s;
         }
         #search-results div:hover {
-            background-color: #ffb3ba;
+            background-color: #ffccd5;
         }
     </style>
 </head>
 <body>
 
-    <h1>น่ารัก Dictionary</h1>
+    <h1>ศัพท์วัยรุ่น</h1>
 
     <div id="random-word">Click to see a random word</div>
     <button onclick="showRandomWord()">Show Random Word</button>
