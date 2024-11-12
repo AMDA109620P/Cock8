@@ -21,7 +21,7 @@
             margin-bottom: 20px;
             text-shadow: 2px 2px 3px #ffa5a5;
         }
-        #random-word, #all-words {
+        #random-word {
             font-size: 1.5em;
             color: #ff6f91;
             margin: 20px;
@@ -31,7 +31,7 @@
             background-color: #ffcccb;
             transition: background-color 0.3s;
         }
-        #random-word:hover, #all-words:hover {
+        #random-word:hover {
             background-color: #ffd6d6;
         }
         button {
@@ -67,7 +67,7 @@
             max-width: 400px;
             text-align: center;
         }
-        #search-results div, #all-words div {
+        #search-results div {
             background-color: #ffe4e1;
             border-radius: 8px;
             padding: 10px;
@@ -75,7 +75,7 @@
             color: #333;
             transition: background-color 0.3s;
         }
-        #search-results div:hover, #all-words div:hover {
+        #search-results div:hover {
             background-color: #ffccd5;
         }
     </style>
@@ -91,20 +91,17 @@
         <input type="text" id="search-box" placeholder="Search a word..." oninput="searchWord()">
     </div>
 
-    <button onclick="showAllWords()">Show All Words</button>
-    <div id="all-words" style="display: none;"></div>
-
     <div id="search-results"></div>
 
     <script>
         const words = [
+            { word: "อย่าหาทํา", definition: "หยุดทํา,อย่าคิดจะทํา" },
+            { word: "น่ามคาน", definition: "รําคาญ" },
+            { word: "ปล่อยจอย", definition: "ปล่อยวาง,ไม่สนใจ" },
             { word: "แกง", definition: "แกล้ง" },
             { word: "จบิง", definition: "จริง" },
             { word: "ใจฟู", definition: "ดีใจ,มีความสุข" },
             { word: "ติดแกลม", definition: "ใช้ชีวิตที่ติดหรู ติดรวย ติดความสะดวกสบาย" },
-            { word: "น่ามคาน", definition: "รําคาญ" },
-            { word: "ปล่อยจอย", definition: "ปล่อยวาง,ไม่สนใจ" },
-            { word: "อย่าหาทํา", definition: "หยุดทํา,อย่าคิดจะทํา" },
             { word: "อย่าเล่นกับระบบ", definition: "จริงจัง,อย่าท้าทาย" },
             { word: "อ่อม", definition: "ไม่เลิศ,รู้สึกกร่อย" },
             { word: "บูด", definition: "ไม่ถูกใจ, ไม่ดี" },
@@ -131,20 +128,6 @@
             } else if (searchTerm) {
                 resultContainer.innerText = "No results found.";
             }
-        }
-
-        function showAllWords() {
-            const sortedWords = words.slice().sort((a, b) => a.word.localeCompare(b.word, 'th'));
-            const allWordsContainer = document.getElementById("all-words");
-            allWordsContainer.innerHTML = "";
-
-            sortedWords.forEach(item => {
-                const div = document.createElement("div");
-                div.innerText = item.word + ": " + item.definition;
-                allWordsContainer.appendChild(div);
-            });
-
-            allWordsContainer.style.display = "block";
         }
     </script>
 
